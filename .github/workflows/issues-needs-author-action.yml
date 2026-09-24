@@ -7,7 +7,7 @@ on:
 
 jobs:
   add-comment:
-    if: github.event.label.name == 'needs-author-action'
+    if: github.repository == 'roflmuffin/CounterStrikeSharp' && github.event.label.name == 'needs-author-action'
     runs-on: ubuntu-latest
     permissions:
       issues: write
