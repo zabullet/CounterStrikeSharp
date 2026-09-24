@@ -1,1 +1,21 @@
 workflow: GitHubFlow/v1
+branches:
+  bleeding-edge:
+    mode: ManualDeployment
+    label: bleeding-edge
+    increment: Inherit
+    prevent-increment:
+      when-current-commit-tagged: true
+    regex: ^bleeding-edge$
+    source-branches:
+      - main
+  bleeding-edge-sigs:
+    mode: ManualDeployment
+    label: bleeding-edgesigs
+    increment: Inherit
+    prevent-increment:
+      when-current-commit-tagged: true
+    regex: ^bleeding-edge-sigs$
+    source-branches:
+      - main
+      - bleeding-edge
