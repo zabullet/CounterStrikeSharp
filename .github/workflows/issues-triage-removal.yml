@@ -7,6 +7,7 @@ on:
 
 jobs:
   label_issues:
+    if: github.repository == 'roflmuffin/CounterStrikeSharp'
     runs-on: ubuntu-latest
     permissions:
       issues: write
