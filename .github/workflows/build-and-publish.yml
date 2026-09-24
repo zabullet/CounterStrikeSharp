@@ -11,11 +11,11 @@ on:
   push:
     paths-ignore:
       - "docfx/**"
-    branches: ["main"]
+    branches: ["main", "bleeding-edge", "bleeding-edge-sigs"]
     tags:
       - "v*"
   pull_request:
-    branches: ["main"]
+    branches: ["main", "bleeding-edge", "bleeding-edge-sigs"]
 
 jobs:
   setup:
@@ -172,11 +172,13 @@ jobs:
           path: managed/CounterStrikeSharp.API/bin/Release
 
   publish:
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && github.repository == 'roflmuffin/CounterStrikeSharp' }}
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && github.repository == 'zabullet/CounterStrikeSharp' }}
     permissions:
       contents: write
     needs: ["setup", "build_linux", "build_windows", "build_managed"]
     runs-on: ubuntu-latest
+    env:
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     steps:
       - name: Prepare env
         shell: bash
@@ -242,23 +244,19 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           append_body: true
+          prerelease: ${{ contains(github.ref_name, '-') }}
           body: |
             ${{ steps.git-cliff.outputs.content }}
 
-            Please refer to [CHANGELOG.md](https://github.com/roflmuffin/CounterStrikeSharp/blob/${{ github.ref_name }}/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/CHANGELOG.md) for details.
           files: |
             counterstrikesharp-windows-${{ needs.setup.outputs.gitversion_semver }}.zip
             counterstrikesharp-with-runtime-windows-${{ needs.setup.outputs.gitversion_semver }}.zip
             counterstrikesharp-linux-${{ needs.setup.outputs.gitversion_semver }}.zip
             counterstrikesharp-with-runtime-linux-${{ needs.setup.outputs.gitversion_semver }}.zip
 
-      - name: Publish NuGet package
-        run: |
-          dotnet nuget push build/api/CounterStrikeSharp.API.${{ needs.setup.outputs.gitversion_semver }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push build/api/CounterStrikeSharp.API.${{ needs.setup.outputs.gitversion_semver }}.snupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-
       - name: Send Notification to Discord
-        if: ${{ !contains(github.ref_name, '-alpha') && !contains(github.ref_name, '-beta') && !contains(github.ref_name, '-rc') }}
+        if: ${{ env.DISCORD_WEBHOOK != '' && !contains(github.ref_name, '-alpha') && !contains(github.ref_name, '-beta') && !contains(github.ref_name, '-rc') }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.3.2
@@ -268,4 +266,4 @@ jobs:
 
             ${{ steps.git-cliff.outputs.content }}
 
-            Please refer to [CHANGELOG.md](https://github.com/roflmuffin/CounterStrikeSharp/blob/${{ github.ref_name }}/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/CHANGELOG.md) for details.
