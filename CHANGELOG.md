@@ -1,3 +1,6 @@
+## What's Changed in v1.0.378-hotfix.3
+* Update dependencies ([7ac8dd2](https://github.com/roflmuffin/CounterStrikeSharp/commit/7ac8dd263fd688d4084b8e5d6cbba9b88fb78390))
+
 ## What's Changed in v1.0.378-hotfix.2
 * Changes supporting hotfixes ([6de1742](https://github.com/roflmuffin/CounterStrikeSharp/commit/6de1742ec7065408de4fa5a328c4f64a36c9c363))
 
