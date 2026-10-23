@@ -1,3 +1,6 @@
+## What's Changed in v1.0.378-hotfix.2
+* Changes supporting hotfixes ([6de1742](https://github.com/roflmuffin/CounterStrikeSharp/commit/6de1742ec7065408de4fa5a328c4f64a36c9c363))
+
 ## What's Changed in v1.0.378-hotfix.1
 * Hotfix for 1.0.3.377 ([e5261b3](https://github.com/roflmuffin/CounterStrikeSharp/commit/e5261b3a8a21e2a60bc07928c06c2c09fca2867a))
 * Merge branch 'main' into bleeding-edge ([0e97795](https://github.com/roflmuffin/CounterStrikeSharp/commit/0e977953645636da80c53900b8e15e024c94a96a))
