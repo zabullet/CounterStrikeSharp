@@ -1,3 +1,6 @@
+## What's Changed in v1.0.378-hotfix.5
+* fix: restore dependency pins the native build compiles ([e5428cd](https://github.com/roflmuffin/CounterStrikeSharp/commit/e5428cd9168cf0a20b63ef493dd2116db42413c5))
+
 ## What's Changed in v1.0.378-hotfix.4
 * More fixes ([6ba883d](https://github.com/roflmuffin/CounterStrikeSharp/commit/6ba883d3eb0d94200492caed492b7638ad70460b))
 
