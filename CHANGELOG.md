@@ -1,7 +1,12 @@
+## What's Changed in v1.0.378-hotfix.1
+* Hotfix for 1.0.3.377 ([e5261b3](https://github.com/roflmuffin/CounterStrikeSharp/commit/e5261b3a8a21e2a60bc07928c06c2c09fca2867a))
+* Merge branch 'main' into bleeding-edge ([0e97795](https://github.com/roflmuffin/CounterStrikeSharp/commit/0e977953645636da80c53900b8e15e024c94a96a))
+
 ## What's Changed in v1.0.377
 * fix: Update Linux signature for CBaseTrigger_StartTouch ([c67396f](https://github.com/roflmuffin/CounterStrikeSharp/commit/c67396fa5d99a5c877e738e0ac8c062e3d0593d7))
 
-## What's Changed in v1.0.376
+## What's Changed in v1.0.376-bleeding-edge.1
+* Merge remote-tracking branch 'origin/main' into bleeding-edge ([5049c7b](https://github.com/roflmuffin/CounterStrikeSharp/commit/5049c7b958a900c0bf8fd9075029f4287a021d0d))
 * fix: set m_bIsSet when updating a custom hud dialog variable by [@dvernoff](https://github.com/dvernoff) in [#1434](https://github.com/roflmuffin/CounterStrikeSharp/pull/1434) ([ffe84cf](https://github.com/roflmuffin/CounterStrikeSharp/commit/ffe84cfc1db478cb53fb83c17252c51a30bb6ed1))
 * fix: correct Windows IsPlayerPawn offset by [@unicbm](https://github.com/unicbm) in [#1445](https://github.com/roflmuffin/CounterStrikeSharp/pull/1445) ([6d22cb5](https://github.com/roflmuffin/CounterStrikeSharp/commit/6d22cb54dc27f7cad1c5137474e5e9cdde73efbe))
 * fix: share one writer for the combined logger by [@Mesharsky](https://github.com/Mesharsky) in [#1444](https://github.com/roflmuffin/CounterStrikeSharp/pull/1444) ([3aad8fc](https://github.com/roflmuffin/CounterStrikeSharp/commit/3aad8fc17503932da7bf9b43063b6303b8718db8))
@@ -12,14 +17,28 @@
 * [@dvernoff](https://github.com/dvernoff) made their first contribution in [#1434](https://github.com/roflmuffin/CounterStrikeSharp/pull/1434)
 * [@adammyllykoski](https://github.com/adammyllykoski) made their first contribution in [#1443](https://github.com/roflmuffin/CounterStrikeSharp/pull/1443)
 
+## What's Changed in v1.0.376-bleeding-edge.0
+* Merge remote-tracking branch 'origin/main' into bleeding-edge ([a42705b](https://github.com/roflmuffin/CounterStrikeSharp/commit/a42705ba76d137fe92a921fdeac45ef480575da5))
+
 ## What's Changed in v1.0.375
 * fix: for update 1.41.8.2 in [#1433](https://github.com/roflmuffin/CounterStrikeSharp/pull/1433) ([2f98498](https://github.com/roflmuffin/CounterStrikeSharp/commit/2f984988bbf89aff817b4d736534faa41306c086))
 * fix: update Windows PostThink signature by [@unicbm](https://github.com/unicbm) in [#1438](https://github.com/roflmuffin/CounterStrikeSharp/pull/1438) ([bd1d936](https://github.com/roflmuffin/CounterStrikeSharp/commit/bd1d9365cb41d50d6c5d6048fbe123e1ac663110))
-* chore: Update Schema Definitions to 1.41.8.2 in [#1404](https://github.com/roflmuffin/CounterStrikeSharp/pull/1404) ([505e466](https://github.com/roflmuffin/CounterStrikeSharp/commit/505e466a08dbf0d252c493afde594cf2c15acf2d))
-* feat: implement KHook in [#1418](https://github.com/roflmuffin/CounterStrikeSharp/pull/1418) ([a55cb8b](https://github.com/roflmuffin/CounterStrikeSharp/commit/a55cb8bca4e27dbbda9cab6909c61e3251d8d11f))
 
 ## New Contributors
 * [@unicbm](https://github.com/unicbm) made their first contribution in [#1438](https://github.com/roflmuffin/CounterStrikeSharp/pull/1438)
+
+## What's Changed in v1.0.375-bleeding-edge.3
+* Merge pull request #3 from zabullet/ci/match-release-tag-version ([308e244](https://github.com/roflmuffin/CounterStrikeSharp/commit/308e244889b3f26e0286f56fb4fe97b983f5d9b5))
+* ci: use the git tag as the build version on release branches ([9b38444](https://github.com/roflmuffin/CounterStrikeSharp/commit/9b384444550b453954a91332c8dd334ce9b10c79))
+
+## What's Changed in v1.0.375-bleeding-edge.1
+* Merge pull request #1 from zabullet/ci/fork-release-workflow ([0d8eb71](https://github.com/roflmuffin/CounterStrikeSharp/commit/0d8eb71d397f922f43b1a0e12e510f8b734a05ef))
+* docs: describe fork Metamod requirement and release tags ([851072c](https://github.com/roflmuffin/CounterStrikeSharp/commit/851072c8bd1001eddf4cfcb872182ccbe0f876c9))
+* chore: cut suffixed releases for each bleeding-edge channel ([77ceaf8](https://github.com/roflmuffin/CounterStrikeSharp/commit/77ceaf823f8d24297661ff849324ffcdf32750bf))
+* ci: skip upstream-only issue and docs workflows on the fork ([caf7353](https://github.com/roflmuffin/CounterStrikeSharp/commit/caf735380e611812a57eae6dd19f740d60f5fbfd))
+* ci: publish fork releases from bleeding-edge branches ([c16ce98](https://github.com/roflmuffin/CounterStrikeSharp/commit/c16ce98a73a6187d4adacb1f6fe2122092c88ef8))
+* chore: Update Schema Definitions to 1.41.8.2 in [#1404](https://github.com/roflmuffin/CounterStrikeSharp/pull/1404) ([505e466](https://github.com/roflmuffin/CounterStrikeSharp/commit/505e466a08dbf0d252c493afde594cf2c15acf2d))
+* feat: implement KHook in [#1418](https://github.com/roflmuffin/CounterStrikeSharp/pull/1418) ([a55cb8b](https://github.com/roflmuffin/CounterStrikeSharp/commit/a55cb8bca4e27dbbda9cab6909c61e3251d8d11f))
 
 ## What's Changed in v1.0.374
 * feat: Add `CustomHudLayout` api by [@qstage](https://github.com/qstage) in [#1410](https://github.com/roflmuffin/CounterStrikeSharp/pull/1410) ([338b22c](https://github.com/roflmuffin/CounterStrikeSharp/commit/338b22c1f3fd4f59d2872f7aa422a8a6ae939f37))
@@ -172,7 +191,7 @@
 * fix: update linux signature for GetCSWeaponDataFromKey ([b4e83df](https://github.com/roflmuffin/CounterStrikeSharp/commit/b4e83dfb4a1a1723c08ac79ea68da4ab8a0255fd))
 * feat(schema): update schema generator to use @GAMMACASE schema dumper format ([4ff2732](https://github.com/roflmuffin/CounterStrikeSharp/commit/4ff2732d8a55297c18cea6181b9022f56cd8fae3))
 
-## What's Changed in v2.0.0-beta.0
+## What's Changed in v1.0.344
 * chore(schema): update schema to latest ([f505405](https://github.com/roflmuffin/CounterStrikeSharp/commit/f50540583d079a6cf546ca590147905ba5eb2c83))
 * fix(schema): allow for negative enum values in source schema file ([97957f6](https://github.com/roflmuffin/CounterStrikeSharp/commit/97957f62208fa782f89e9629ddde1944aaadd149))
 * chore: update devcontainer location ([0c2f1cd](https://github.com/roflmuffin/CounterStrikeSharp/commit/0c2f1cd078c0c54a6cf1fb402082b3f38c6303d2))
