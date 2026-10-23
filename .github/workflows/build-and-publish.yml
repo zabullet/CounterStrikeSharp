@@ -11,11 +11,11 @@ on:
   push:
     paths-ignore:
       - "docfx/**"
-    branches: ["main", "bleeding-edge", "bleeding-edge-sigs"]
+    branches: ["main", "bleeding-edge", "bleeding-edge-sigs", "hotfix/**", "hotfix-*"]
     tags:
       - "v*"
   pull_request:
-    branches: ["main", "bleeding-edge", "bleeding-edge-sigs"]
+    branches: ["main", "bleeding-edge", "bleeding-edge-sigs", "hotfix/**", "hotfix-*"]
 
 jobs:
   setup:

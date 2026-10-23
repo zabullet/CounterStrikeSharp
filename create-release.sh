@@ -6,7 +6,7 @@ DRY_RUN=false
 CHANNEL=""
 
 usage() {
-    echo "Usage: $0 [--dry-run|-d] [--channel bleeding-edge|bleeding-edgesigs]"
+    echo "Usage: $0 [--dry-run|-d] [--channel bleeding-edge|bleeding-edgesigs|hotfix]"
     exit 1
 }
 
@@ -35,17 +35,22 @@ if [[ "$DRY_RUN" == true ]]; then
     echo "Running in DRY-RUN mode - no changes will be pushed"
 fi
 
+CURRENT_BRANCH="$(git branch --show-current)"
+
 if [[ -z "$CHANNEL" ]]; then
-    case "$(git branch --show-current)" in
+    case "$CURRENT_BRANCH" in
         bleeding-edge)
             CHANNEL="bleeding-edge"
             ;;
         bleeding-edge-sigs)
             CHANNEL="bleeding-edgesigs"
             ;;
+        hotfix/*|hotfix-*)
+            CHANNEL="hotfix"
+            ;;
         *)
-            echo "Error: current branch '$(git branch --show-current)' is not a release branch."
-            echo "Check out bleeding-edge or bleeding-edge-sigs, or pass --channel."
+            echo "Error: current branch '$CURRENT_BRANCH' is not a release branch."
+            echo "Check out bleeding-edge, bleeding-edge-sigs, or a hotfix/<name> branch, or pass --channel."
             exit 1
             ;;
     esac
@@ -58,14 +63,21 @@ case "$CHANNEL" in
     bleeding-edgesigs)
         RELEASE_BRANCH="bleeding-edge-sigs"
         ;;
+    hotfix)
+        if [[ "$CURRENT_BRANCH" =~ ^hotfix[/-] ]]; then
+            RELEASE_BRANCH="$CURRENT_BRANCH"
+        else
+            echo "Error: channel hotfix must be released from a hotfix/<name> branch (current: '$CURRENT_BRANCH')."
+            exit 1
+        fi
+        ;;
     *)
         echo "Error: unknown channel '$CHANNEL'"
-        echo "Expected: bleeding-edge or bleeding-edgesigs"
+        echo "Expected: bleeding-edge, bleeding-edgesigs, or hotfix"
         exit 1
         ;;
 esac
 
-CURRENT_BRANCH="$(git branch --show-current)"
 if [[ "$CURRENT_BRANCH" != "$RELEASE_BRANCH" ]]; then
     if [[ "$DRY_RUN" == true ]]; then
         echo "Note: dry-run on '$CURRENT_BRANCH'. A real release must be run from '$RELEASE_BRANCH'."
