@@ -19,3 +19,13 @@ branches:
     source-branches:
       - main
       - bleeding-edge
+  hotfix:
+    mode: ManualDeployment
+    label: hotfix
+    increment: Inherit
+    prevent-increment:
+      when-current-commit-tagged: true
+    regex: ^hotfix[/-]
+    source-branches:
+      - main
+      - bleeding-edge
